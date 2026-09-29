@@ -1,0 +1,155 @@
+@import './tokens.css';
+@import './base.css';
+
+/* ============================================================
+   OBSCURA — app shell / global chrome
+   ============================================================ */
+
+#root {
+  position: relative;
+  width: 100%;
+}
+
+/* keyboard skip link */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 300;
+  padding: 0.75rem 1.15rem;
+  background: var(--accent);
+  color: var(--ink);
+  border-radius: var(--radius-m);
+  transform: translateY(-160%);
+  transition: transform 0.35s var(--ease-out-expo);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* Film grain — barely-there texture over everything */
+.grain {
+  position: fixed;
+  inset: -60px;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}
+
+.grain__inner {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 0.9s steps(4) infinite;
+}
+
+@keyframes grain-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-18px, 12px);
+  }
+  50% {
+    transform: translate(10px, -16px);
+  }
+  75% {
+    transform: translate(-8px, -8px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Custom cursor — blend difference inverts across dark & paper bands */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+.cursor__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: var(--paper);
+  transition:
+    width var(--dur-fast) var(--ease-out-quart),
+    height var(--dur-fast) var(--ease-out-quart),
+    margin var(--dur-fast) var(--ease-out-quart),
+    opacity var(--dur-fast) linear;
+}
+
+.cursor__ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border-radius: 50%;
+  border: 1px solid var(--paper);
+  opacity: 0;
+  transform: scale(0.4);
+  transition:
+    transform 0.55s var(--ease-out-expo),
+    opacity 0.4s ease,
+    width 0.55s var(--ease-out-expo),
+    height 0.55s var(--ease-out-expo),
+    margin 0.55s var(--ease-out-expo);
+}
+
+.cursor__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--ink);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.cursor.is-hover .cursor__dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  opacity: 0;
+}
+
+.cursor.is-hover .cursor__ring {
+  width: 88px;
+  height: 88px;
+  margin: -44px 0 0 -44px;
+  background: var(--paper);
+  border-color: transparent;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cursor.is-hover .cursor__label {
+  opacity: 1;
+}
+
+.cursor.is-down .cursor__ring {
+  transform: scale(0.86);
+}
+
+@media (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}

@@ -1,0 +1,55 @@
+.sound-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.35rem 0;
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: inherit;
+}
+
+.sound-toggle__bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.sound-toggle__bar {
+  width: 2px;
+  height: 3px;
+  background: currentColor;
+  transition: height 0.4s var(--ease-out-quart);
+}
+
+.sound-toggle__bar.is-on {
+  animation: sound-bar 1.1s ease-in-out infinite;
+}
+
+.sound-toggle__bar.is-on:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.sound-toggle__bar.is-on:nth-child(3) {
+  animation-delay: 0.36s;
+}
+
+@keyframes sound-bar {
+  0%,
+  100% {
+    height: 3px;
+  }
+  50% {
+    height: 12px;
+  }
+}
+
+.sound-toggle:hover .sound-toggle__label {
+  color: var(--accent);
+}
+
+.sound-toggle__label {
+  transition: color 0.3s ease;
+}

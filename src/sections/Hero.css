@@ -1,0 +1,174 @@
+.hero {
+  position: relative;
+  height: 195vh;
+}
+
+.hero__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: calc(var(--nav-h) + 0.5rem);
+  padding-bottom: clamp(1.5rem, 4vh, 3rem);
+  overflow: hidden;
+}
+
+.hero__frame {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 4;
+}
+
+.hero__eyebrow-sep {
+  margin-inline: 0.55em;
+  color: var(--accent);
+}
+
+/* — the z-sandwich: back type (1) → webgl (2) → front type (3) — */
+
+.hero__title-stack {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.hero__title-stack--back {
+  z-index: 1;
+}
+
+.hero__webgl {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero__webgl canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.hero__title-stack--front {
+  z-index: 3;
+}
+
+.hero__title {
+  width: 100%;
+  padding-inline: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.86;
+  text-transform: uppercase;
+  will-change: transform;
+}
+
+.hero__line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.hero__line {
+  display: block;
+  will-change: transform;
+}
+
+/* the middle word is only painted in the back layer */
+.hero__line.is-ghost {
+  visibility: hidden;
+}
+
+.hero__line-mask--1 .hero__line {
+  letter-spacing: -0.03em;
+}
+
+.hero__title-stack--back .hero__line-mask--1 .hero__line {
+  /* sits behind the sculpture — dimmed slightly for depth */
+  opacity: 0.92;
+}
+
+/* — foot — */
+
+.hero__foot {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr) auto;
+  align-items: end;
+  gap: clamp(1.25rem, 3vw, 3rem);
+}
+
+.hero__cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero__cue-line {
+  display: block;
+  width: 56px;
+  height: 1px;
+  background: var(--fg-dim);
+  transform-origin: left;
+  animation: cue-pulse 2.2s var(--ease-in-out-quart) infinite;
+}
+
+@keyframes cue-pulse {
+  0% {
+    transform: scaleX(0.15);
+  }
+  55% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0.15);
+  }
+}
+
+.hero__intro {
+  max-width: 30rem;
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  line-height: 1.55;
+  color: var(--fg-dim);
+  justify-self: end;
+  text-wrap: pretty;
+}
+
+.hero__chapter {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: 170vh;
+  }
+
+  .hero__foot {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .hero__intro {
+    justify-self: start;
+  }
+
+  .hero__eyebrow--right {
+    display: none;
+  }
+}
