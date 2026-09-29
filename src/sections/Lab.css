@@ -1,0 +1,143 @@
+.lab {
+  position: relative;
+  z-index: 3;
+  background: var(--ink-soft);
+  color: var(--paper);
+}
+
+.lab__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: end;
+  margin-bottom: clamp(3.5rem, 9vh, 6.5rem);
+}
+
+.lab__title {
+  margin-top: clamp(1.5rem, 4vh, 2.75rem);
+}
+
+.lab__title-dim {
+  color: var(--grey);
+}
+
+.lab__note {
+  justify-self: end;
+  padding-bottom: 0.4rem;
+}
+
+.lab__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3.2vw, 3.25rem);
+}
+
+/* asymmetric editorial rhythm */
+.lab__tile--1,
+.lab__tile--3 {
+  margin-top: clamp(0rem, 5vh, 4.5rem);
+}
+
+.lab__tile {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.lab__tile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1px solid var(--line);
+  padding-top: 0.95rem;
+}
+
+.lab__stage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+
+.lab__stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(242, 239, 233, 0.04);
+  pointer-events: none;
+}
+
+.experiment__canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+}
+
+.lab__tile-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.lab__tile-title {
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  letter-spacing: 0.01em;
+  transition: color 0.4s ease;
+}
+
+.lab__tile:hover .lab__tile-title {
+  color: var(--accent);
+}
+
+.lab__tile-caption {
+  text-align: right;
+}
+
+/* — type experiment — */
+
+.type-experiment {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.15rem, 1vw, 0.75rem);
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+.type-experiment__letter {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5.5vw, 4.75rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  will-change: transform;
+  transition: transform 0.28s var(--ease-out-expo);
+  display: inline-block;
+}
+
+@media (max-width: 900px) {
+  .lab__head {
+    grid-template-columns: 1fr;
+  }
+
+  .lab__note {
+    justify-self: start;
+  }
+
+  .lab__grid {
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 6vh, 4rem);
+  }
+
+  .lab__tile--1,
+  .lab__tile--3 {
+    margin-top: 0;
+  }
+}

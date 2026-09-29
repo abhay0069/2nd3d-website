@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📚 Documentation
+    url: https://github.com/abhay0069/2nd3d-website/blob/main/README.md
+    about: Read the README and docs before opening an issue — most questions live there.
+  - name: 🔒 Security report
+    url: https://github.com/abhay0069/2nd3d-website/security/advisories/new
+    about: Please report vulnerabilities privately via GitHub Security Advisories.

@@ -1,0 +1,214 @@
+.work {
+  position: relative;
+  z-index: 3;
+  background: var(--ink);
+  color: var(--paper);
+  padding-top: clamp(7rem, 16vh, 12rem);
+}
+
+.work__head {
+  margin-bottom: clamp(3rem, 7vh, 5.5rem);
+}
+
+.work__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: clamp(2.25rem, 5vh, 3.75rem);
+}
+
+.work__title {
+  max-width: 12ch;
+}
+
+/* — pinned horizontal rig — */
+
+.work__pin {
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.work__track {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(3rem, 7vw, 8rem);
+  padding-inline: var(--gutter);
+  height: min(76vh, 720px);
+  will-change: transform;
+}
+
+.work__panel {
+  flex: 0 0 auto;
+  width: min(62vw, 860px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(1.25rem, 2.5vh, 2rem);
+}
+
+.work__panel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.work__media {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  background: var(--graphite);
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+}
+
+.work__media-inner {
+  position: absolute;
+  inset: -8% 0;
+  height: 116%;
+  will-change: transform;
+}
+
+.work__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  transition:
+    transform 1s var(--ease-out-expo),
+    filter 0.6s ease;
+  filter: saturate(0.8) contrast(1.05);
+}
+
+.work__media:hover img {
+  transform: scale(1.09);
+  filter: saturate(1) contrast(1.02);
+}
+
+.work__mini-scene {
+  position: absolute;
+  inset: 0;
+}
+
+.work__mini-scene canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.work__media-hint {
+  position: absolute;
+  right: 1.15rem;
+  bottom: 1.05rem;
+  padding: 0.55rem 0.85rem;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 999px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s var(--ease-out-expo);
+}
+
+.work__media:hover .work__media-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.work__panel-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 3rem);
+  align-items: start;
+}
+
+.work__panel-name {
+  will-change: transform, opacity;
+}
+
+.work__panel-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.work__panel-info .body-copy {
+  font-size: clamp(0.92rem, 1.05vw, 1.08rem);
+  max-width: 38ch;
+}
+
+.work__panel-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.85rem;
+}
+
+.work__tags {
+  text-align: right;
+}
+
+/* — end card — */
+
+.work__end {
+  flex: 0 0 auto;
+  width: min(38vw, 520px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-left: clamp(1rem, 3vw, 3rem);
+  border-left: 1px solid var(--line);
+}
+
+/* — mobile: the journey turns vertical, story intact — */
+
+@media (max-width: 900px) {
+  .work {
+    padding-bottom: clamp(4rem, 10vh, 7rem);
+  }
+
+  .work__pin {
+    height: auto;
+    overflow: visible;
+    display: block;
+  }
+
+  .work__track {
+    flex-direction: column;
+    height: auto;
+    gap: clamp(3.5rem, 8vh, 5.5rem);
+    transform: none !important;
+  }
+
+  .work__panel {
+    width: 100%;
+  }
+
+  .work__media {
+    aspect-ratio: 4 / 3;
+    flex: none;
+  }
+
+  .work__panel-bottom {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .work__end {
+    width: 100%;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+    padding-top: 2.5rem;
+  }
+}

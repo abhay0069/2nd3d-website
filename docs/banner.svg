@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 480" width="1280" height="480" role="img" aria-label="OBSCURA — Digital Atelier">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#f2efe9" stroke-opacity="0.045" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="fade" cx="72%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ff4a1f" stop-opacity="0.12"/>
+      <stop offset="55%" stop-color="#ff4a1f" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#ff4a1f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ground -->
+  <rect width="1280" height="480" fill="#0b0b0c"/>
+  <rect width="1280" height="480" fill="url(#grid)"/>
+  <rect width="1280" height="480" fill="url(#fade)"/>
+
+  <!-- frame -->
+  <rect x="28" y="28" width="1224" height="424" fill="none" stroke="#f2efe9" stroke-opacity="0.14"/>
+
+  <!-- meta row -->
+  <text x="56" y="86" fill="#6f6e71" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-size="17" letter-spacing="5">EST. 2019</text>
+  <text x="1224" y="86" text-anchor="end" fill="#6f6e71" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-size="17" letter-spacing="5">REACT · THREE.JS · GSAP · GLSL</text>
+
+  <!-- wordmark -->
+  <text x="56" y="292" fill="#f2efe9" font-family="Space Grotesk, Helvetica Neue, Arial, sans-serif" font-size="148" font-weight="600" letter-spacing="-4">OBSCURA</text>
+  <text x="662" y="188" fill="#f2efe9" font-family="Space Grotesk, Helvetica Neue, Arial, sans-serif" font-size="30">®</text>
+  <circle cx="120" cy="344" r="7" fill="#ff4a1f"/>
+  <text x="146" y="352" fill="#c9c5bd" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-size="22" letter-spacing="7">DIGITAL ATELIER — AN EXPERIMENTAL WEB EXPERIENCE</text>
+
+  <!-- abstract mark: the O -->
+  <circle cx="1032" cy="240" r="118" fill="none" stroke="#f2efe9" stroke-opacity="0.35" stroke-width="3"/>
+  <circle cx="1032" cy="240" r="72" fill="none" stroke="#f2efe9" stroke-opacity="0.16" stroke-width="1"/>
+  <circle cx="1032" cy="240" r="13" fill="#ff4a1f"/>
+  <line x1="1032" y1="92" x2="1032" y2="122" stroke="#f2efe9" stroke-opacity="0.3"/>
+  <line x1="1032" y1="358" x2="1032" y2="388" stroke="#f2efe9" stroke-opacity="0.3"/>
+
+  <!-- footer row -->
+  <line x1="56" y1="398" x2="1224" y2="398" stroke="#f2efe9" stroke-opacity="0.12"/>
+  <text x="56" y="432" fill="#6f6e71" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-size="15" letter-spacing="4">© 2026</text>
+  <text x="1224" y="432" text-anchor="end" fill="#6f6e71" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-size="15" letter-spacing="4">BUILT TO BE EXPERIENCED</text>
+</svg>

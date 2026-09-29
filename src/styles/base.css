@@ -1,0 +1,251 @@
+/* ============================================================
+   OBSCURA — base / reset / shared primitives
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html,
+body {
+  background: var(--ink);
+  color: var(--paper);
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.55;
+  font-weight: 400;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* — shared typography primitives — */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.display-xl {
+  font-size: var(--text-xl);
+  line-height: 0.85;
+  letter-spacing: -0.042em;
+}
+
+.display-l {
+  font-size: var(--text-l);
+  line-height: 0.88;
+  letter-spacing: -0.038em;
+}
+
+.display-m {
+  font-size: var(--text-m);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+
+.meta {
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
+.meta--accent {
+  color: var(--accent);
+}
+
+.body-copy {
+  max-width: 34rem;
+  color: var(--fg-dim);
+  font-weight: 400;
+}
+
+.body-copy em {
+  color: var(--fg);
+  font-style: italic;
+}
+
+/* — layout primitives — */
+
+.shell {
+  width: 100%;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+}
+
+.rule {
+  height: 1px;
+  background: var(--line);
+  border: 0;
+  width: 100%;
+}
+
+/* — link with animated underline (micro-interaction) — */
+
+.link-sweep {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.12em;
+}
+
+.link-sweep::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur-mid) var(--ease-out-expo);
+}
+
+.link-sweep:hover::after,
+.link-sweep:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* — word/char split helpers for GSAP reveals — */
+
+.split-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+
+/* open variant — scrub reveals that must not clip */
+.split-line--open {
+  overflow: visible;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.split-word {
+  display: inline-block;
+  will-change: transform;
+}
+
+.split-char {
+  display: inline-block;
+  will-change: transform;
+  transform-origin: 50% 100%;
+}
+
+/* — image treatment — */
+
+.img-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--graphite);
+}
+
+.img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+  transition:
+    transform 1.1s var(--ease-out-expo),
+    filter 0.6s ease;
+  filter: saturate(0.82) contrast(1.04);
+}
+
+.img-wrap:hover img {
+  transform: scale(1.0);
+  filter: saturate(1) contrast(1.02);
+}
+
+/* — utility — */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

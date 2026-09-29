@@ -1,0 +1,71 @@
+/* ============================================================
+   OBSCURA — design tokens
+   Palette: deep black / warm white / graphite / one ember accent
+   ============================================================ */
+
+:root {
+  /* — palette — */
+  --ink: #0b0b0c;
+  --ink-soft: #121214;
+  --graphite: #1a1a1d;
+  --paper: #f2efe9;
+  --paper-dim: #c9c5bd;
+  --grey: #6f6e71;
+  --grey-deep: #3a3a3e;
+  --accent: #ff4a1f;
+  --accent-soft: rgba(255, 74, 31, 0.14);
+
+  /* — semantic (dark theme default) — */
+  --bg: var(--ink);
+  --fg: var(--paper);
+  --fg-dim: var(--paper-dim);
+  --line: rgba(242, 239, 233, 0.14);
+  --line-strong: rgba(242, 239, 233, 0.28);
+
+  /* — type — */
+  --font-display: 'Space Grotesk', 'Helvetica Neue', sans-serif;
+  --font-body: 'Inter Tight', 'Helvetica Neue', sans-serif;
+
+  --text-xl: clamp(3.35rem, 13.5vw, 13rem);
+  --text-l: clamp(3rem, 8.6vw, 8.25rem);
+  --text-m: clamp(2.1rem, 5vw, 4.4rem);
+  --text-s: clamp(1.35rem, 2.4vw, 2.15rem);
+  --text-body: clamp(1rem, 1.1vw, 1.175rem);
+  --text-meta: clamp(0.66rem, 0.72vw, 0.78rem);
+
+  /* — spacing — */
+  --gutter: clamp(1.25rem, 3.4vw, 3.5rem);
+  --section-y: clamp(6rem, 14vh, 12rem);
+
+  /* — motion — */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.44, 1);
+  --dur-fast: 180ms;
+  --dur-mid: 480ms;
+  --dur-slow: 900ms;
+  --dur-cine: 1400ms;
+
+  /* — layout — */
+  --nav-h: 5.25rem;
+  --radius-s: 2px;
+  --radius-m: 4px;
+}
+
+/* Inverted (paper) bands — applied via [data-theme='light'] wrappers */
+[data-theme='light'] {
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --fg-dim: var(--grey);
+  --line: rgba(11, 11, 12, 0.14);
+  --line-strong: rgba(11, 11, 12, 0.32);
+}
+
+/* Reduced motion — collapse timing to near-instant */
+[data-reduced-motion='true'] {
+  --dur-fast: 1ms;
+  --dur-mid: 1ms;
+  --dur-slow: 1ms;
+  --dur-cine: 1ms;
+}
