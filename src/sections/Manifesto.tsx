@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { gsap } from '../animations/gsapSetup';
 import { scrubWords, velocitySkew } from '../animations/text';
 import './Manifesto.css';
 

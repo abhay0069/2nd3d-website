@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '../animations/gsapSetup';
 import { splitChars } from '../utils/dom';
 import { sceneState } from '../utils/sceneState';
 import { HeroScene } from '../3d/HeroScene';

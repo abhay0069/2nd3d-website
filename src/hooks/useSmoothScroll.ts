@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
 import type { MutableRefObject } from 'react';
 import Lenis from 'lenis';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '../animations/gsapSetup';
 
 export interface SmoothScrollHandle {
   scrollTo: (target: string | number, options?: { offset?: number; duration?: number }) => void;

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { gsap } from '../animations/gsapSetup';
 import { SITE, SOCIALS } from '../data/site';
 import type { SmoothScrollRef } from '../hooks/useSmoothScroll';
 import { useReducedMotion } from '../hooks/useReducedMotion';

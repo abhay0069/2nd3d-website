@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from '../animations/gsapSetup';
 import { NAV, SITE, SOCIALS } from '../data/site';
 import type { SmoothScrollRef } from '../hooks/useSmoothScroll';
 import { SoundToggle } from './SoundToggle';
