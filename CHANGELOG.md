@@ -9,6 +9,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 _Nothing yet._
 
+## [1.0.1] — 2026-09-30
+
+### Fixed
+
+- **Black screen after first paint** — every module now imports `gsap` and
+  `gsap/ScrollTrigger` through `src/animations/gsapSetup.ts`, the single entry point that
+  runs `gsap.registerPlugin(ScrollTrigger)`. Previously the setup module was imported by
+  nothing, so the plugin never registered and the first ScrollTrigger tween crashed the
+  tree after first paint.
+- **Fractured gsap module graph** — removed the `manualChunks` block from `vite.config.ts`.
+  Force-splitting `gsap` into its own vendor chunk let registration state diverge across
+  chunks; the bundler now chunks the dependency graph naturally.
+
+### Added — Engineering
+
+- **Error-boundary / watchdog pattern** — a React error boundary wraps `<App />` and swaps
+  any render failure for a branded recovery screen, while a one-shot boot watchdog reloads
+  the page once if `#root` is still empty (or an uncaught error escapes) moments after
+  first paint, painting a dependency-free static fallback if even that reload fails. A
+  `sessionStorage` flag guarantees the watchdog can never enter a reload loop — a crashed
+  boot degrades to a recovery screen, never a black screen.
+
 ## [1.0.0] — 2026-09-30
 
 ### Added — Experience
@@ -43,5 +65,6 @@ _Nothing yet._
   horizontal rig becomes a vertical journey, particle counts scale down.
 - CI workflow (typecheck + production build), issue/PR templates, full documentation set.
 
-[Unreleased]: https://github.com/abhay0069/2nd3d-website/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/abhay0069/2nd3d-website/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/abhay0069/2nd3d-website/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/abhay0069/2nd3d-website/releases/tag/v1.0.0

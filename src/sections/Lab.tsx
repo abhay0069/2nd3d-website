@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { gsap } from '../animations/gsapSetup';
 import { EXPERIMENTS } from '../data/site';
 import { FieldExperiment, TypeExperiment, TraceExperiment } from '../components/experiments/CanvasExperiments';
 import { FluxExperiment } from '../components/experiments/FluxExperiment';

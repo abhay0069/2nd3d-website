@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { gsap } from '../animations/gsapSetup';
 import { splitChars } from '../utils/dom';
 import './Preloader.css';
 

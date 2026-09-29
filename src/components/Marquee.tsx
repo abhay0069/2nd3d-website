@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '../animations/gsapSetup';
 import './Marquee.css';
 
 interface Props {

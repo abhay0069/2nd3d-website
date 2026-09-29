@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
+import { gsap } from '../animations/gsapSetup';
 import { CAPABILITIES } from '../data/site';
 import { asset } from '../utils/assets';
 import { useIsMobile } from '../hooks/useMediaQuery';
