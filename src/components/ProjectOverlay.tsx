@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { Project } from '../data/site';
+import { asset } from '../utils/assets';
 import './ProjectOverlay.css';
 
 interface Props {
@@ -57,7 +58,7 @@ export function ProjectOverlay({ project, onClose }: Props) {
               animate={{ scale: 1, y: 0 }}
               transition={{ duration: 1.1, ease, delay: 0.12 }}
             >
-              <img src={project.image} alt={`${project.name} — project visual`} loading="lazy" />
+              <img src={asset(project.image)} alt={`${project.name} — project visual`} loading="lazy" />
             </motion.div>
 
             <div className="project-overlay__text">

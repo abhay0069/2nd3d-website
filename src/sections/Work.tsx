@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PROJECTS, type Project } from '../data/site';
 import { horizontalRig } from '../animations/scroll';
+import { asset } from '../utils/assets';
 import { MiniProjectScene } from '../3d/MiniProjectScene';
 import { useIsTablet } from '../hooks/useMediaQuery';
 import './Work.css';
@@ -154,7 +155,7 @@ export function Work({ onOpenProject }: Props) {
                   {project.preview === 'webgl' ? (
                     <MiniProjectScene hovered={shardHovered} className="work__mini-scene" />
                   ) : (
-                    <img src={project.image} alt={`${project.name} project visual`} loading="lazy" />
+                    <img src={asset(project.image)} alt={`${project.name} project visual`} loading="lazy" />
                   )}
                 </div>
                 <span className="work__media-hint meta">OPEN CASE</span>

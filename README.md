@@ -7,6 +7,10 @@
 </p>
 
 <p align="center">
+  🔗 <strong><a href="https://abhay0069.github.io/2nd3d-website/">Live site — abhay0069.github.io/2nd3d-website</a></strong>
+</p>
+
+<p align="center">
   <a href="https://github.com/abhay0069/2nd3d-website/actions/workflows/ci.yml"><img src="https://github.com/abhay0069/2nd3d-website/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT" />
   <img src="https://img.shields.io/badge/react-18-61DAFB?logo=react&logoColor=white" alt="React 18" />

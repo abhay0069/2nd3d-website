@@ -1,7 +1,12 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+// VITE_BASE lets CI deploy under a project sub-path (e.g. /2nd3d-website/)
+// while local dev keeps serving from the root.
+const base = process.env.VITE_BASE || '/';
+
 export default defineConfig({
+  base,
   plugins: [react()],
   server: {
     host: '0.0.0.0',

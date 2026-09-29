@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { CAPABILITIES } from '../data/site';
+import { asset } from '../utils/assets';
 import { useIsMobile } from '../hooks/useMediaQuery';
 import './Capabilities.css';
 
@@ -165,7 +166,7 @@ export function Capabilities() {
       >
         <img
           ref={previewImgRef}
-          src={CAPABILITIES[active ?? 0].image}
+          src={asset(CAPABILITIES[active ?? 0].image)}
           alt=""
           className="capabilities__preview-img"
           draggable={false}
